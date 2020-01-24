@@ -14,7 +14,8 @@ import { Component, OnInit } from '@angular/core'
       [canvasWidth]="canvasWidth"
       [needleValue]="needleValue"
       [centralLabel]="centralLabel"
-      [options]="options"></gauge-chart>
+      [options]="options"
+    ></gauge-chart>
   `,
 })
 export class AppComponent implements OnInit {
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit {
       needleStartValue: 50,
     }
 
+    // @ts-ignore
     setInterval(() => {
       this.bottomLabel = '' + (+this.bottomLabel + 10) + '.0'
     }, 2000)
