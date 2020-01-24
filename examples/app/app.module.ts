@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { Component, NgModule } from '@angular/core'
+import { NgModule } from '@angular/core'
 
 /*
  * Platform and Environment providers/directives/pipes

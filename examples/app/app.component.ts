@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       hasNeedle: true,
       needleColor: 'gray',
       needleUpdateSpeed: 1000,
-      arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+      arcColors: ['rgb(0,204,38)', 'rgb(236,239,0)', 'rgb(255,1,0)'],
       arcDelimiters: [30],
       rangeLabel: ['0', '100'],
       needleStartValue: 50,
