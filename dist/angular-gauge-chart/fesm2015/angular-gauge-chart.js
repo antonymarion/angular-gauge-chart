@@ -1,17 +1,14 @@
-import { Component, ViewChild, Input, NgModule } from '@angular/core';
+import { ɵɵdefineComponent, ɵɵstaticViewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵNgOnChangesFeature, ɵɵelementStart, ɵɵtext, ɵɵelementEnd, ɵɵelement, ɵɵstyleProp, ɵɵadvance, ɵɵtextInterpolate1, ɵsetClassMetadata, Component, ViewChild, Input, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
 import { gaugeChart } from 'gauge-chart';
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Angular 2 decorators and services
  */
+const _c0 = ["gaugeArea"];
 /**
  * GaugeChart Component
  */
 class GaugeChartComponent {
-    /**
-     * @return {?}
-     */
     ngOnInit() {
         // calculate styles for name and bottomLabel
         if (this.name) {
@@ -32,9 +29,6 @@ class GaugeChartComponent {
         }
         this.oldOptions = JSON.parse(JSON.stringify(this.options));
     }
-    /**
-     * @return {?}
-     */
     optionsCheck() {
         if (this.canvasWidth == null) {
             console.warn('gauge-chart warning: canvasWidth is not specified!');
@@ -49,27 +43,15 @@ class GaugeChartComponent {
         }
         return true;
     }
-    /**
-     * @return {?}
-     */
     ngDoCheck() {
         if (!this.areEqual(this.options, this.oldOptions)) {
             this.drawChart(true);
             this.oldOptions = JSON.parse(JSON.stringify(this.options));
         }
     }
-    /**
-     * @param {?} obj1
-     * @param {?} obj2
-     * @return {?}
-     */
     areEqual(obj1, obj2) {
         return JSON.stringify(obj1) === JSON.stringify(obj2);
     }
-    /**
-     * @param {?=} redraw
-     * @return {?}
-     */
     drawChart(redraw = false) {
         if (redraw) {
             this.gaugeChart.removeGauge();
@@ -78,10 +60,6 @@ class GaugeChartComponent {
         this.gaugeChart = gaugeChart(this.element, this.canvasWidth, this.options);
         this.gaugeChart.updateNeedle(this.needleValue);
     }
-    /**
-     * @param {?} changes
-     * @return {?}
-     */
     ngOnChanges(changes) {
         if (changes.needleValue && !changes.needleValue.firstChange) {
             this.needleValue = changes.needleValue.currentValue;
@@ -93,89 +71,83 @@ class GaugeChartComponent {
         }
     }
 }
-GaugeChartComponent.decorators = [
-    { type: Component, args: [{
+GaugeChartComponent.ɵfac = function GaugeChartComponent_Factory(t) { return new (t || GaugeChartComponent)(); };
+GaugeChartComponent.ɵcmp = ɵɵdefineComponent({ type: GaugeChartComponent, selectors: [["rg-gauge-chart"]], viewQuery: function GaugeChartComponent_Query(rf, ctx) { if (rf & 1) {
+        ɵɵstaticViewQuery(_c0, true);
+    } if (rf & 2) {
+        var _t;
+        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.gaugeArea = _t.first);
+    } }, inputs: { canvasWidth: "canvasWidth", needleValue: "needleValue", centralLabel: "centralLabel", options: "options", wrapOptions: "wrapOptions", name: "name", nameFont: "nameFont", bottomLabel: "bottomLabel", bottomLabelFont: "bottomLabelFont" }, features: [ɵɵNgOnChangesFeature()], decls: 7, vars: 12, consts: [[1, "gauge-chart"], ["gaugeArea", ""], [1, "gauge-chart__label"]], template: function GaugeChartComponent_Template(rf, ctx) { if (rf & 1) {
+        ɵɵelementStart(0, "div", 0);
+        ɵɵelementStart(1, "span");
+        ɵɵtext(2);
+        ɵɵelementEnd();
+        ɵɵelement(3, "div", null, 1);
+        ɵɵelementStart(5, "span", 2);
+        ɵɵtext(6);
+        ɵɵelementEnd();
+        ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵɵstyleProp("width", ctx.canvasWidth, "px");
+        ɵɵadvance(1);
+        ɵɵstyleProp("font-size", ctx.nameFont, "px")("margin-bottom", ctx.nameMargin, "px");
+        ɵɵadvance(1);
+        ɵɵtextInterpolate1(" ", ctx.name, " ");
+        ɵɵadvance(3);
+        ɵɵstyleProp("font-size", ctx.bottomLabelFont, "px")("margin-top", ctx.bottomLabelMargin, "px");
+        ɵɵadvance(1);
+        ɵɵtextInterpolate1(" ", ctx.bottomLabel, " ");
+    } }, styles: ["*[_ngcontent-%COMP%]{font-family:Roboto,'Helvetica Neue',sans-serif}.gauge-chart[_ngcontent-%COMP%]{display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;text-align:center}.gauge-chart__label[_ngcontent-%COMP%]{font-weight:700}"] });
+/*@__PURE__*/ (function () { ɵsetClassMetadata(GaugeChartComponent, [{
+        type: Component,
+        args: [{
                 selector: 'rg-gauge-chart',
-                template: "<div class=\"gauge-chart\" [style.width.px]=\"canvasWidth\">\n  <span\n    [style.font-size.px]=\"nameFont\"\n    [style.margin-bottom.px]=\"nameMargin\">\n    {{name}}\n  </span>\n  <div #gaugeArea></div>\n  <span\n    class=\"gauge-chart__label\"\n    [style.font-size.px]=\"bottomLabelFont\"\n    [style.margin-top.px]=\"bottomLabelMargin\">\n    {{bottomLabel}}\n  </span>\n</div>\n",
-                styles: ["*{font-family:Roboto,'Helvetica Neue',sans-serif}.gauge-chart{display:flex;flex-direction:column;text-align:center}.gauge-chart__label{font-weight:700}"]
-            }] }
-];
-GaugeChartComponent.propDecorators = {
-    gaugeArea: [{ type: ViewChild, args: ['gaugeArea', { static: true },] }],
-    canvasWidth: [{ type: Input }],
-    needleValue: [{ type: Input }],
-    centralLabel: [{ type: Input }],
-    options: [{ type: Input }],
-    wrapOptions: [{ type: Input }],
-    name: [{ type: Input }],
-    nameFont: [{ type: Input }],
-    bottomLabel: [{ type: Input }],
-    bottomLabelFont: [{ type: Input }]
-};
-if (false) {
-    /** @type {?} */
-    GaugeChartComponent.prototype.gaugeArea;
-    /** @type {?} */
-    GaugeChartComponent.prototype.canvasWidth;
-    /** @type {?} */
-    GaugeChartComponent.prototype.needleValue;
-    /** @type {?} */
-    GaugeChartComponent.prototype.centralLabel;
-    /** @type {?} */
-    GaugeChartComponent.prototype.options;
-    /** @type {?} */
-    GaugeChartComponent.prototype.wrapOptions;
-    /** @type {?} */
-    GaugeChartComponent.prototype.name;
-    /** @type {?} */
-    GaugeChartComponent.prototype.nameFont;
-    /** @type {?} */
-    GaugeChartComponent.prototype.bottomLabel;
-    /** @type {?} */
-    GaugeChartComponent.prototype.bottomLabelFont;
-    /** @type {?} */
-    GaugeChartComponent.prototype.nameMargin;
-    /** @type {?} */
-    GaugeChartComponent.prototype.bottomLabelMargin;
-    /**
-     * @type {?}
-     * @private
-     */
-    GaugeChartComponent.prototype.element;
-    /**
-     * @type {?}
-     * @private
-     */
-    GaugeChartComponent.prototype.gaugeChart;
-    /**
-     * @type {?}
-     * @private
-     */
-    GaugeChartComponent.prototype.oldOptions;
-}
+                templateUrl: './gauge-chart.component.html',
+                styleUrls: ['./gauge-chart.component.css'],
+            }]
+    }], null, { gaugeArea: [{
+            type: ViewChild,
+            args: ['gaugeArea', { static: true }]
+        }], canvasWidth: [{
+            type: Input
+        }], needleValue: [{
+            type: Input
+        }], centralLabel: [{
+            type: Input
+        }], options: [{
+            type: Input
+        }], wrapOptions: [{
+            type: Input
+        }], name: [{
+            type: Input
+        }], nameFont: [{
+            type: Input
+        }], bottomLabel: [{
+            type: Input
+        }], bottomLabelFont: [{
+            type: Input
+        }] }); })();
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 class GaugeChartModule {
 }
-GaugeChartModule.decorators = [
-    { type: NgModule, args: [{
+GaugeChartModule.ɵmod = ɵɵdefineNgModule({ type: GaugeChartModule });
+GaugeChartModule.ɵinj = ɵɵdefineInjector({ factory: function GaugeChartModule_Factory(t) { return new (t || GaugeChartModule)(); }, imports: [[]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(GaugeChartModule, { declarations: [GaugeChartComponent], exports: [GaugeChartComponent] }); })();
+/*@__PURE__*/ (function () { ɵsetClassMetadata(GaugeChartModule, [{
+        type: NgModule,
+        args: [{
                 imports: [],
                 declarations: [GaugeChartComponent],
                 exports: [GaugeChartComponent],
-            },] }
-];
+            }]
+    }], null, null); })();
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+/*
+ * Public API Surface of gauge-chart
  */
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated bundle index. Do not edit.
  */
 
 export { GaugeChartComponent, GaugeChartModule };
